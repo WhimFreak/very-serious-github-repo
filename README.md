@@ -1,6 +1,6 @@
 # Outline of the week
 
-There's no exact timeline because things may take longer or shorter and thats ok.
+There's no exact timeline because things may take longer or shorter and thats ok. The following is a rough copy of the Juniper and TheChief video about what a general outline of a game jams looks like. This doc may update many times.
 
 ### Phase 1 - Reveal
 
