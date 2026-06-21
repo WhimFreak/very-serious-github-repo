@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://nsf7qm863dqn"]
+
+[ext_resource type="Script" uid="uid://br1crkrmqle0t" path="res://assets/prefabs/ui/vignette_center_mover.gd" id="1_ysi25"]
+
+[node name="Vignette Center Mover" type="Node2D" unique_id=1058799315]
+script = ExtResource("1_ysi25")
