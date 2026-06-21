@@ -90,7 +90,7 @@ func on_cheering_end() -> void:
 
 func on_sit_end():
 	var rnd_num: int = randi_range(1, 4)
-	print("cheering "+ str(rnd_num))
+	print("sit end "+ str(rnd_num))
 	match rnd_num:
 			1:
 				on_start_sit_idle()
