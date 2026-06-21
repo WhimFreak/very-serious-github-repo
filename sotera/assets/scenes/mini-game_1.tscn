@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b1y8jb2ie62s0"]
+
+[ext_resource type="Texture2D" uid="uid://due4lbslimpee" path="res://assets/images/Screenshot_2026-06-20_101852.png" id="1_xajdg"]
+
+[node name="Test" type="Node2D" unique_id=437795735]
+
+[node name="Screenshot20260620101852" type="Sprite2D" parent="." unique_id=1048853929]
+position = Vector2(984, 538)
+scale = Vector2(2.3073592, 2.3073592)
+texture = ExtResource("1_xajdg")

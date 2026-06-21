@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ctimv56j7qqjo"]
+
+[ext_resource type="Script" uid="uid://ccqkywcjpdtt" path="res://Scripts/lever.gd" id="1_u5xol"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wldyw"]
+
+[node name="Lever" type="Node2D" unique_id=1796701312]
+script = ExtResource("1_u5xol")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1071533819]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=406021225]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1165707845]
+position = Vector2(0, -6)
+scale = Vector2(0.5610386, 0.6345566)
+shape = SubResource("CircleShape2D_wldyw")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

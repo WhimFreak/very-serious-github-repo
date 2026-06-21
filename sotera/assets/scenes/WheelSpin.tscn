@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bnekxchwnkwkm"]
+
+[ext_resource type="Texture2D" uid="uid://cpa20nmftj7dq" path="res://assets/images/wheel-number-sprite.png" id="1_e2bra"]
+[ext_resource type="Script" uid="uid://c7v5j4x51bxed" path="res://src/gameplay/WheelSpin.gd" id="1_kjr7i"]
+[ext_resource type="Shader" uid="uid://cfup3wpvc4r5a" path="res://assets/shaders/WheelSpin.gdshader" id="2_cdcth"]
+[ext_resource type="Texture2D" uid="uid://ch5qgxqjmwbc5" path="res://assets/images/Arrow 1.png" id="4_5fd0l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1cqo2"]
+shader = ExtResource("2_cdcth")
+shader_parameter/offset = 0.0
+
+[node name="WheelSpin" type="Node2D" unique_id=1465385523]
+script = ExtResource("1_kjr7i")
+
+[node name="WheelTexture" type="Sprite2D" parent="." unique_id=1675824674]
+material = SubResource("ShaderMaterial_1cqo2")
+texture = ExtResource("1_e2bra")
+
+[node name="Arrow" type="Sprite2D" parent="." unique_id=1084741313]
+position = Vector2(-80, 0)
+texture = ExtResource("4_5fd0l")
+
+[node name="WheelValue" type="Label" parent="." unique_id=718211304]
+offset_left = -24.0
+offset_top = 65.0
+offset_right = 24.0
+offset_bottom = 88.0
+horizontal_alignment = 1

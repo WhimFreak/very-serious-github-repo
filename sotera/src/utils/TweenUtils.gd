@@ -6,4 +6,4 @@ static func ease_out_quart(x: float) -> float: # [0, 1]
 
 # Dummy constructor to prevent idiots calling .new()
 func _init() -> void:
-	assert(false, "Use ConfigExample.target_function() insted")
+	assert(false, "Use TweenUtils.target_function() instead")
