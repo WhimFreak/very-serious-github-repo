@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cwq3hrbth3oin"]
+[gd_scene format=3 uid="uid://hubowr5basua"]
 
 [ext_resource type="Texture2D" uid="uid://p3qdi7qf22xt" path="res://assets/generated/packed_textures/noise.png" id="1_6r1bv"]
 
@@ -18,6 +18,3 @@ texture = ExtResource("1_6r1bv")
 [node name="Test2" type="Sprite2D" parent="." unique_id=865100256]
 position = Vector2(420, 368)
 texture = ExtResource("1_6r1bv")
-
-[node name="Wheel" parent="." unique_id=959256643]
-position = Vector2(908, 613)

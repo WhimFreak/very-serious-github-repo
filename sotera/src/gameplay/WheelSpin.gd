@@ -2,15 +2,23 @@ extends Node2D
 
 var offset: float = 0.0;
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+# Ideally we'll export those variables
+var spin_speed: float = 0.1;
+var values: Array[int] = [
+	5, 10, 15, 20, 25, 30
+]
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	offset += 0.1;
+	offset += spin_speed;
+	offset = (int(offset * 1000000) % 1000000) / 1000000.0;
+	var single_value_height_in_texture = 1.0 / values.size();
+	var value_idx = (int(offset / single_value_height_in_texture) + 3) % values.size();
 	
-	offset = (int(offset * 100) % 100) / 100.0;
+	$WheelTexture.material.set_shader_parameter("offset", offset);
+	$WheelTexture.material.set_shader_parameter("number_of_values", values.size());
+	$WheelTexture.material.set_shader_parameter("current_value", value_idx);
+
+	$WheelValue.text = str(values[value_idx])
 	
-	$Sprite2D.material.set_shader_parameter("offset", offset);
+	# TODO: Stop the spin after a while
 	pass
