@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://bbqcbyvycwqrr"]
+
+[ext_resource type="Texture2D" uid="uid://wxv0vjpmmhpj" path="res://assets/images/TestImage.png" id="1_nuidt"]
+[ext_resource type="PackedScene" uid="uid://hubowr5basua" path="res://assets/prefabs/WheelSpin.tscn" id="2_4arlo"]
+[ext_resource type="PackedScene" uid="uid://b830mwodbpleq" path="res://assets/prefabs/player.tscn" id="3_cooqm"]
+[ext_resource type="Script" uid="uid://bu77csllncd31" path="res://src/scripts/dust_vfx.gd" id="4_nuidt"]
+[ext_resource type="Script" uid="uid://cee05bf1k1vhv" path="res://src/scripts/stage_exit_area.gd" id="5_8cy1c"]
+
+[sub_resource type="Curve" id="Curve_nuidt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_4arlo"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t6tgv"]
+distance = 3.9999962
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3k25l"]
+size = Vector2(275.00003, 381)
+
+[node name="Root" type="Node2D" unique_id=953526698]
+
+[node name="TestImage" type="Sprite2D" parent="." unique_id=1293281652]
+position = Vector2(945, 534)
+scale = Vector2(1.3463243, 1.3463244)
+texture = ExtResource("1_nuidt")
+
+[node name="WheelSpin" parent="." unique_id=1465385523 instance=ExtResource("2_4arlo")]
+position = Vector2(948, 544)
+
+[node name="Player" parent="." unique_id=1229557920 instance=ExtResource("3_cooqm")]
+position = Vector2(1474, 803)
+
+[node name="DustVfx" type="Node2D" parent="Player" unique_id=959753666 node_paths=PackedStringArray("darkest_dust", "mid_dust", "lightest_dust")]
+z_index = 10
+script = ExtResource("4_nuidt")
+darkest_dust = NodePath("Dark")
+mid_dust = NodePath("Mid")
+lightest_dust = NodePath("Light")
+
+[node name="Dark" type="CPUParticles2D" parent="Player/DustVfx" unique_id=45880780]
+z_index = 10
+emitting = false
+lifetime = 0.62
+direction = Vector2(0, -1)
+spread = 59.23
+gravity = Vector2(0, 10)
+initial_velocity_max = 40.05
+scale_amount_curve = SubResource("Curve_nuidt")
+color = Color(0.36078432, 0.2784314, 0.20392157, 1)
+color_ramp = SubResource("Gradient_4arlo")
+
+[node name="Mid" type="CPUParticles2D" parent="Player/DustVfx" unique_id=1915443640]
+z_index = 10
+emitting = false
+lifetime = 0.62
+direction = Vector2(0, -1)
+spread = 59.23
+gravity = Vector2(0, 10)
+initial_velocity_max = 40.05
+scale_amount_curve = SubResource("Curve_nuidt")
+color = Color(0.5411765, 0.43529412, 0.3254902, 1)
+color_ramp = SubResource("Gradient_4arlo")
+
+[node name="Light" type="CPUParticles2D" parent="Player/DustVfx" unique_id=426118027]
+z_index = 10
+emitting = false
+lifetime = 0.62
+direction = Vector2(0, -1)
+spread = 59.23
+gravity = Vector2(0, 10)
+initial_velocity_max = 40.05
+scale_amount_curve = SubResource("Curve_nuidt")
+color = Color(0.7372549, 0.627451, 0.50980395, 1)
+color_ramp = SubResource("Gradient_4arlo")
+
+[node name="worldboundary" type="Node2D" parent="." unique_id=1162189176]
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="worldboundary" unique_id=133051340]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worldboundary/StaticBody2D4" unique_id=896232653]
+position = Vector2(887, 1128)
+shape = SubResource("WorldBoundaryShape2D_t6tgv")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="worldboundary" unique_id=973391984]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worldboundary/StaticBody2D" unique_id=102201382]
+position = Vector2(-91, 508)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_t6tgv")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="worldboundary" unique_id=122644830]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worldboundary/StaticBody2D3" unique_id=332451517]
+position = Vector2(1968, 467)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_t6tgv")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="worldboundary" unique_id=231815583]
+position = Vector2(80, 632)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worldboundary/StaticBody2D2" unique_id=269391746]
+position = Vector2(843, -38)
+rotation = -3.1415925
+shape = SubResource("WorldBoundaryShape2D_t6tgv")
+
+[node name="stage-exit-area" type="Area2D" parent="." unique_id=935960045]
+position = Vector2(1790.3751, 890.0564)
+script = ExtResource("5_8cy1c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stage-exit-area" unique_id=1553963211]
+position = Vector2(-40.875122, -22.556396)
+shape = SubResource("RectangleShape2D_3k25l")
+
+[node name="DisplayControls" type="RichTextLabel" parent="stage-exit-area" unique_id=1089995010]
+offset_left = -178.37512
+offset_top = -213.0564
+offset_right = 96.62488
+offset_bottom = -100.0564

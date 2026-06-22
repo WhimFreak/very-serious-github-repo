@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://7qye6c2bonxj"]
 
-[ext_resource type="Script" uid="uid://dm7nq7enxse37" path="res://assets/scenes/main_menu.gd" id="1_c4jbt"]
+[ext_resource type="Script" uid="uid://dm7nq7enxse37" path="res://src/scripts/main_menu.gd" id="1_c4jbt"]
 [ext_resource type="Texture2D" uid="uid://b7ad5c10abtfo" path="res://assets/images/play-button.png" id="3_sphea"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_0e6r5"]
