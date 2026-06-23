@@ -55,9 +55,11 @@ func start_spinning():
 		spin_speed = RandUtils.randf_range(min_speed, max_speed)
 		spin_time = RandUtils.randf_range(min_time,max_time)
 		elapsed_spin_time = 0
-		$WheelParticleEffect.start_speedup()
+		$WheelSpinEffect.start_speedup()
+		$WheelSpinEffect2.start_speedup()
 
 func stop_spinning()->void:
 	if state == WHEELSTATE.SPINNING:
 		state = WHEELSTATE.IDLE
-		$WheelParticleEffect.start_slowdown()
+		$WheelSpinEffect.start_slowdown()
+		$WheelSpinEffect2.start_slowdown()

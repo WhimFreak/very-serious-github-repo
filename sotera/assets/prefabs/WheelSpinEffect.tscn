@@ -10,7 +10,7 @@ colors = PackedColorArray(1, 0.54509807, 0.47843137, 1, 1, 1, 1, 0, 1, 0.5450980
 offsets = PackedFloat32Array(0.1829609, 0.37011173, 0.5460894, 0.78910613)
 colors = PackedColorArray(1.347661e-06, 0.87553775, 0.8064471, 1, 1, 1, 1, 0, 0, 0.8745098, 0.80784315, 1, 1, 0.8745098, 0.80784315, 0)
 
-[node name="WheelParticleEffect" type="Node2D" unique_id=1160851600]
+[node name="WheelSpinEffect" type="Node2D" unique_id=1160851600]
 script = ExtResource("1_5q03y")
 
 [node name="smallPE" type="CPUParticles2D" parent="." unique_id=1044738356]
