@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c1rcmeyhjohsc" path="res://assets/images/ec6f362310153168708465494f4b11e455d83960.png" id="1_d8tg0"]
 [ext_resource type="PackedScene" uid="uid://bqxq8gse8h6s4" path="res://assets/prefabs/Character.tscn" id="2_it2ts"]
+[ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="3_gt8iy"]
 
 [node name="TopDownGameplay" type="Node2D" unique_id=1809378097]
 
@@ -12,3 +13,14 @@ texture = ExtResource("1_d8tg0")
 
 [node name="Character" parent="." unique_id=356780082 instance=ExtResource("2_it2ts")]
 position = Vector2(205, 808)
+
+[node name="CRT" parent="." unique_id=719073563 instance=ExtResource("3_gt8iy")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -2.0
+offset_top = 1.0
+offset_right = 1914.0
+offset_bottom = 1081.0
+grow_horizontal = 1
+grow_vertical = 1

@@ -1,24 +1,49 @@
 [gd_scene format=3 uid="uid://ctimv56j7qqjo"]
 
-[ext_resource type="Script" uid="uid://ccqkywcjpdtt" path="res://src/scripts/lever.gd" id="1_u5xol"]
-[ext_resource type="PackedScene" uid="uid://coefv3gd5bvy5" path="res://assets/prefabs/lever_ebutton.tscn" id="2_wldyw"]
+[ext_resource type="Script" uid="uid://cc53mm5im7qdg" path="res://src/scripts/lever.gd" id="1_wldyw"]
+[ext_resource type="Texture2D" uid="uid://dlx27g1p310r8" path="res://assets/images/lever.png" id="3_ic5fi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wldyw"]
+radius = 229.9793
 
-[node name="Lever" type="Node2D" unique_id=1796701312 node_paths=PackedStringArray("e_prompt_ui")]
-script = ExtResource("1_u5xol")
-e_prompt_ui = NodePath("LeverEbutton")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1071533819]
+[node name="Lever" type="Node2D" unique_id=1796701312]
+script = ExtResource("1_wldyw")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=406021225]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1165707845]
-position = Vector2(0, -6)
 scale = Vector2(0.5610386, 0.6345566)
 shape = SubResource("CircleShape2D_wldyw")
 
-[node name="LeverEbutton" parent="." unique_id=246407452 node_paths=PackedStringArray("target_lever") instance=ExtResource("2_wldyw")]
-target_lever = NodePath("..")
+[node name="Lever" type="Sprite2D" parent="." unique_id=1178572540]
+position = Vector2(7.6293945e-06, 1)
+scale = Vector2(5.71875, 5.71875)
+texture = ExtResource("3_ic5fi")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[node name="Control" type="Control" parent="." unique_id=1181641598]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control" unique_id=726261120]
+visible = false
+layout_mode = 0
+offset_left = -84.0
+offset_top = -289.0
+offset_right = 67.30435
+offset_bottom = -119.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0.17254902)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = -3
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 124
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

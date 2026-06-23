@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b830mwodbpleq" path="res://assets/prefabs/player.tscn" id="1_v6fnw"]
 [ext_resource type="Script" uid="uid://iha8hb868o05" path="res://src/scripts/ExitDetection.gd" id="2_olgeh"]
+[ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="2_olgeh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r6e8m"]
 distance = 1.9999924
@@ -50,3 +51,8 @@ script = ExtResource("2_olgeh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=871724120]
 position = Vector2(-16.5, -70.5)
 shape = SubResource("RectangleShape2D_1vda6")
+[node name="CRT" parent="." unique_id=719073563 instance=ExtResource("2_olgeh")]
+offset_left = 7.0
+offset_top = -2.0
+offset_right = 1924.0
+offset_bottom = 1088.0

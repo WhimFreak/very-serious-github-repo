@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cx5tpa5lgwidh" path="res://src/scripts/jumpscare/JumpScare.gd" id="1_050a5"]
 [ext_resource type="Texture2D" uid="uid://0665qrli4jg7" path="res://assets/raw/2d/vector/jumpscare/jumpscare1.png" id="2_f5mll"]
 [ext_resource type="AudioStream" uid="uid://cpyw8qldtloig" path="res://assets/audio/voice/dialogue/voices calling player.wav" id="3_7i03j"]
+[ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/scenes/user_interface.tscn" id="4_f5mll"]
 
 [sub_resource type="Curve" id="Curve_f5mll"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.10026384, 0.8013245), 0.0, 0.0, 0, 0, Vector2(0.14775726, 0.5231788), 0.0, 0.0, 0, 0, Vector2(0.20316622, 0.8476821), 0.9296053, 0.9296053, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -21,3 +22,7 @@ volume_db = -0.842
 [node name="Jumpscare1" type="Sprite2D" parent="." unique_id=598095111]
 position = Vector2(960, 535)
 texture = ExtResource("2_f5mll")
+
+[node name="User Interface" parent="." unique_id=719073563 instance=ExtResource("4_f5mll")]
+offset_top = -5.0
+offset_bottom = -5.0

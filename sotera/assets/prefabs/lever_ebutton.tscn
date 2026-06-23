@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://coefv3gd5bvy5"]
-
-[ext_resource type="Texture2D" uid="uid://bst5o1ysj0eik" path="res://assets/images/E.png" id="1_0wl68"]
-[ext_resource type="Script" uid="uid://cl8p10ynd6ivp" path="res://src/scripts/LeverE.gd" id="1_7oksu"]
-
-[node name="LeverEbutton" type="Sprite2D" unique_id=246407452]
-texture = ExtResource("1_0wl68")
-script = ExtResource("1_7oksu")

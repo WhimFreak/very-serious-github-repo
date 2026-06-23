@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bmy0gsxqp1ydl"]
+
+[ext_resource type="Script" uid="uid://bu77csllncd31" path="res://src/scripts/dust_vfx.gd" id="1_tdggg"]
+
+[sub_resource type="Curve" id="Curve_pywqp"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ummb2"]
+
+[node name="DustVfx" type="Node2D" unique_id=2025310674 node_paths=PackedStringArray("darkest_dust", "mid_dust", "lightest_dust")]
+z_index = 10
+script = ExtResource("1_tdggg")
+darkest_dust = NodePath("Dark")
+mid_dust = NodePath("Mid")
+lightest_dust = NodePath("Light")
+
+[node name="Dark" type="CPUParticles2D" parent="." unique_id=1990625548]
+z_index = 10
+emitting = false
+lifetime = 0.62
+direction = Vector2(0, -1)
+spread = 59.23
+gravity = Vector2(0, 10)
+initial_velocity_max = 40.05
+scale_amount_curve = SubResource("Curve_pywqp")
+color = Color(0.36078432, 0.2784314, 0.20392157, 1)
+color_ramp = SubResource("Gradient_ummb2")
+
+[node name="Mid" type="CPUParticles2D" parent="." unique_id=1899486574]
+z_index = 10
+emitting = false
+lifetime = 0.62
+direction = Vector2(0, -1)
+spread = 59.23
+gravity = Vector2(0, 10)
+initial_velocity_max = 40.05
+scale_amount_curve = SubResource("Curve_pywqp")
+color = Color(0.5411765, 0.43529412, 0.3254902, 1)
+color_ramp = SubResource("Gradient_ummb2")
+
+[node name="Light" type="CPUParticles2D" parent="." unique_id=619767184]
+z_index = 10
+emitting = false
+lifetime = 0.62
+direction = Vector2(0, -1)
+spread = 59.23
+gravity = Vector2(0, 10)
+initial_velocity_max = 40.05
+scale_amount_curve = SubResource("Curve_pywqp")
+color = Color(0.7372549, 0.627451, 0.50980395, 1)
+color_ramp = SubResource("Gradient_ummb2")
