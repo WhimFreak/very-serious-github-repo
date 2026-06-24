@@ -36,12 +36,11 @@ func _process(delta: float) -> void:
 
 		offset += speed_multiplier;
 		offset = fmod(offset, 1.0);
-		if (spin_time - elapsed_spin_time < (spin_time * 0.25)):
-			if ($WheelSpinEffect.state != $WheelSpinEffect.WheelPEState.SPEED_DOWN_TRANSITION):
-				print($WheelSpinEffect.state)
-				$WheelSpinEffect.start_slowdown()
-			if ($WheelSpinEffect2.state != $WheelSpinEffect2.WheelPEState.SPEED_DOWN_TRANSITION):
-				$WheelSpinEffect2.start_slowdown()
+		if(spin_time - elapsed_spin_time < (spin_time * 0.25)):
+			if($WheelSpinEffect.state != $WheelSpinEffect.WheelPEState.SPEED_DOWN_TRANSITION):
+				$WheelSpinEffect.stop_pe_impact()
+			if($WheelSpinEffect2.state != $WheelSpinEffect2.WheelPEState.SPEED_DOWN_TRANSITION):
+				$WheelSpinEffect2.stop_pe_impact()
 	else:
 		stop_spinning()
 

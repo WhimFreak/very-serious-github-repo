@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 		speed = lerp(
 			int(current_speed),
 			fast_speed if state == WheelPEState.SPEED_UP_TRANSITION else normal_speed,
-			elapsed_time / transition_time
+			min(elapsed_time / transition_time, 1)
 		)
 		elapsed_time += delta
 		update_speed(speed, velocity_diff_multiplier)
