@@ -1,5 +1,7 @@
 extends Node
 
+class_name MenuRoot
+
 @export var target_scene: String
 
 func _on_play_pressed() -> void:

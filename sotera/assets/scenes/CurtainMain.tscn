@@ -4,9 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://bwav05t3mcd2k" path="res://assets/prefabs/curtain_prefab.tscn" id="2_k62dj"]
 [ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="3_2jmyb"]
 [ext_resource type="Script" uid="uid://d21j1diayi2fi" path="res://src/scripts/main/MainMenuExitBtn.gd" id="4_ghxc0"]
-[ext_resource type="Script" uid="uid://dwlphya06wa3a" path="res://src/scripts/main/MainMenuBtn.gd" id="5_2jmyb"]
+[ext_resource type="Texture2D" uid="uid://bvlqyj4ric5nb" path="res://assets/raw/menu/blocked exitk.png" id="4_yb34w"]
 [ext_resource type="PackedScene" uid="uid://dssc5aclv83g7" path="res://assets/prefabs/JumpScarePrefab.tscn" id="5_k62dj"]
+[ext_resource type="AudioStream" uid="uid://cvrks233g2sq0" path="res://assets/audio/ui_click_2.wav" id="5_opcs7"]
 [ext_resource type="PackedScene" uid="uid://bkkqyxmuf1f88" path="res://assets/prefabs/ui/PointerTextArrow.tscn" id="5_xe05w"]
+[ext_resource type="Script" uid="uid://6gbrgksowim7" path="res://src/scripts/main/MenuLabelMotionControl.gd" id="6_eg6ox"]
+[ext_resource type="Script" uid="uid://cf5vvcme34lkq" path="res://src/scripts/main/MainMenuPlayBtn.gd" id="7_eg6ox"]
 [ext_resource type="Script" uid="uid://dnwagqmfpnviu" path="res://src/systems/parallax/ParallaxSystem.gd" id="7_ghxc0"]
 
 [node name="Root" type="Control" unique_id=868332111]
@@ -20,6 +23,7 @@ script = ExtResource("1_7t6i1")
 target_scene = "res://assets/scenes/FortuneWheelScene.tscn"
 
 [node name="Curtains" parent="." unique_id=1459606750 instance=ExtResource("2_k62dj")]
+metadata/_edit_lock_ = true
 
 [node name="Exit" type="ColorRect" parent="." unique_id=180414193 node_paths=PackedStringArray("crt", "pointer", "curtain_system", "jump_scare")]
 layout_mode = 0
@@ -29,9 +33,6 @@ offset_right = 996.0
 offset_bottom = 847.0
 color = Color(1, 1, 1, 0)
 script = ExtResource("4_ghxc0")
-min_scale = null
-max_scale = null
-max_time = null
 crt = NodePath("../CRT")
 pointer = NodePath("../PointerTextArrow")
 curtain_system = NodePath("../Curtains")
@@ -49,7 +50,20 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Title" type="Label" parent="." unique_id=507629899]
+[node name="Exit Blocker" type="TextureRect" parent="Exit" unique_id=2015126012]
+layout_mode = 0
+offset_left = -17.0
+offset_top = 17.0
+offset_right = 125.0
+offset_bottom = 32.0
+texture = ExtResource("4_yb34w")
+
+[node name="Click Sound" type="AudioStreamPlayer" parent="Exit" unique_id=563619040]
+stream = ExtResource("5_opcs7")
+volume_db = -9.575
+
+[node name="Title Sotera Old" type="Label" parent="." unique_id=507629899]
+visible = false
 layout_mode = 0
 offset_left = 521.0
 offset_top = 463.0
@@ -59,16 +73,41 @@ pivot_offset = Vector2(263, 185)
 theme_override_font_sizes/font_size = 280
 text = "SOTERA"
 text_overrun_behavior = 1
-metadata/_edit_lock_ = true
 
-[node name="Play" type="ColorRect" parent="." unique_id=1097624220 node_paths=PackedStringArray("crt", "pointer", "curtain_system", "jump_scare")]
+[node name="Title2" type="Label" parent="." unique_id=1655281862]
+layout_mode = 0
+offset_left = 584.0
+offset_top = 533.0
+offset_right = 1318.0
+offset_bottom = 739.0
+pivot_offset = Vector2(263, 185)
+theme_override_font_sizes/font_size = 200
+text = "Fortune"
+text_overrun_behavior = 1
+script = ExtResource("6_eg6ox")
+
+[node name="Title" type="Label" parent="." unique_id=2020388790]
+layout_mode = 0
+offset_left = 651.0
+offset_top = 453.0
+offset_right = 816.0
+offset_bottom = 536.0
+pivot_offset = Vector2(263, 185)
+theme_override_colors/font_color = Color(0.89411765, 0.3529412, 0.3529412, 1)
+theme_override_font_sizes/font_size = 80
+text = "Fol's"
+text_overrun_behavior = 1
+script = ExtResource("6_eg6ox")
+
+[node name="Play" type="ColorRect" parent="." unique_id=1097624220 node_paths=PackedStringArray("root", "crt", "pointer", "curtain_system", "jump_scare")]
 layout_mode = 0
 offset_left = 744.0
 offset_top = 700.0
 offset_right = 1137.0
 offset_bottom = 770.0
 color = Color(1, 1, 1, 0)
-script = ExtResource("5_2jmyb")
+script = ExtResource("7_eg6ox")
+root = NodePath("..")
 crt = NodePath("../CRT")
 pointer = NodePath("../PointerTextArrow")
 curtain_system = NodePath("../Curtains")
@@ -86,6 +125,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
+[node name="Click Sound" type="AudioStreamPlayer" parent="Play" unique_id=981480161]
+stream = ExtResource("5_opcs7")
+
 [node name="PointerTextArrow" parent="." unique_id=766367298 instance=ExtResource("5_xe05w")]
 
 [node name="JumpScare" parent="." unique_id=1559867996 instance=ExtResource("5_k62dj")]
@@ -98,6 +140,7 @@ offset_left = 7.0
 offset_top = 12.0
 offset_right = 7.0
 offset_bottom = 12.0
+metadata/_edit_lock_ = true
 
 [node name="Systems" type="Node" parent="." unique_id=2041690459]
 

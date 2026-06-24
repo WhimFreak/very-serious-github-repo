@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b54k4cp23oa4j" path="res://src/systems/CurtainSystem.gd" id="1_d56ug"]
 [ext_resource type="Texture2D" uid="uid://dvvc2fgi0vcws" path="res://assets/raw/wheel-scene/curtains_half.png" id="2_72x68"]
+[ext_resource type="Script" uid="uid://cj42oxfa358ls" path="res://src/scripts/CurtainController.gd" id="3_8jm74"]
+[ext_resource type="AudioStream" uid="uid://b8velque7aknc" path="res://assets/audio/UI paper click.wav" id="3_72x68"]
 
 [node name="Curtains" type="Node2D" unique_id=1568423794 node_paths=PackedStringArray("curtain_left", "curtain_right")]
 script = ExtResource("1_d56ug")
@@ -13,9 +15,24 @@ metadata/_custom_type_script = "uid://bdbbnat5qmoiv"
 position = Vector2(271, 532)
 scale = Vector2(8, 8)
 texture = ExtResource("2_72x68")
+script = ExtResource("3_8jm74")
+
+[node name="Move Sound" type="AudioStreamPlayer2D" parent="CurtainLeft" unique_id=1249038893]
+position = Vector2(59.25, 5.125)
+scale = Vector2(0.125, 0.125)
+stream = ExtResource("3_72x68")
+volume_db = 6.067
+attenuation = 0.46651664
 
 [node name="CurtainRight" type="Sprite2D" parent="." unique_id=2071391199]
 position = Vector2(1633, 529)
 rotation = -3.135981
 scale = Vector2(8, -8)
 texture = ExtResource("2_72x68")
+script = ExtResource("3_8jm74")
+
+[node name="Move Sound" type="AudioStreamPlayer2D" parent="CurtainRight" unique_id=1633280869]
+position = Vector2(62.077023, 8.723484)
+rotation = -3.135981
+scale = Vector2(0.125, -0.125)
+stream = ExtResource("3_72x68")

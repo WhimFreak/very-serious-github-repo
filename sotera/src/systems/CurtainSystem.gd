@@ -11,8 +11,8 @@ enum CurtainSystemState {
 	OPENING_FULL, OPEN_FULL, CLOSING_FULL
 }
 
-@export var curtain_left: Node2D
-@export var curtain_right: Node2D
+@export var curtain_left: CurtainController
+@export var curtain_right: CurtainController
 
 
 var origin_left: Vector2
@@ -140,6 +140,8 @@ func open_full() -> void:
 	ajust_full_open_origin()
 	time = 0.0
 	max_time = randf_range(range_max_full_open_close_time.x, range_max_full_open_close_time.y)
+	curtain_left.start_full_sound()
+	curtain_right.start_full_sound()
 		
 	_state = CurtainSystemState.OPENING_FULL
 	
@@ -148,6 +150,8 @@ func close_full() -> void:
 	if skip: return
 	
 	ajust_full_open_origin()
+	curtain_left.start_full_sound()
+	curtain_right.start_full_sound()
 	
 	_state = CurtainSystemState.CLOSING_FULL
 
@@ -164,11 +168,16 @@ func open_both_certains_a_little() -> void:
 	
 	time = 0.0
 	max_time = randf_range(range_max_open_close_time.x, range_max_open_close_time.y)
+	curtain_left.start_little_sound()
+	curtain_right.start_little_sound()
 	
 	_state = CurtainSystemState.OPENING_A_LITTLE
 	
 func close_both_certains_a_little() -> void:
 	var skip: bool = !(_state == CurtainSystemState.OPEN_A_LITTLE || _state == CurtainSystemState.OPENING_A_LITTLE)
 	if skip: return
+	
+	curtain_left.start_little_sound()
+	curtain_right.start_little_sound()
 	
 	_state = CurtainSystemState.CLOSING_A_LITTLE
