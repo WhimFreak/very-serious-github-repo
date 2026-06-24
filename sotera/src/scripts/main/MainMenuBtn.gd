@@ -1,4 +1,4 @@
-extends Control
+extends ColorRect
 
 class_name MainMenuBtn
 
@@ -10,6 +10,7 @@ var time: float
 @export var max_scale: float = 1.1
 @export var max_time: float = 0.5
 @export var crt: CrtControl
+@export var pointer: PointerText # 2 arrows which points to the text (extra focus)
 
 # --------------- Used to move curtaints a little on hover ---------------------
 @export var curtain_system: CurtainSystem
@@ -18,6 +19,7 @@ var time: float
 
 var motion: CameraMotion = CameraMotion.new()
 var base_offset: Vector2
+var _target_color: Color
 
 func init_motion() -> void:
 	base_offset = position
@@ -33,6 +35,8 @@ func _ready():
 	
 	scale.x = min_scale
 	scale.y = min_scale
+	
+	_target_color = $btn.get_theme_color("font_color")
 	
 	
 func _process(delta: float) -> void:
@@ -65,6 +69,7 @@ func _on_hover_enter():
 	# all triggered aniamtions -> player visaul feedback
 	crt.start_darken(uv_mouse_pos)
 	curtain_system.open_both_certains_a_little()
+	pointer.point(self, _target_color)
 	# all triggered aniamtions -> player visaul feedback
 	
 	state = MainMenuBtnState.GAIN_FOCUS
@@ -74,6 +79,7 @@ func _on_hover_exit():
 	# all triggered aniamtions -> player visaul feedback
 	crt.stop_darken()
 	curtain_system.close_both_certains_a_little()
+	pointer.hide_pointers()
 	# all triggered aniamtions -> player visaul feedback
 	
 	state = MainMenuBtnState.LOSE_FOCUS

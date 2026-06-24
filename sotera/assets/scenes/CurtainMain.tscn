@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://d21j1diayi2fi" path="res://src/scripts/main/MainMenuExitBtn.gd" id="4_ghxc0"]
 [ext_resource type="Script" uid="uid://dwlphya06wa3a" path="res://src/scripts/main/MainMenuBtn.gd" id="5_2jmyb"]
 [ext_resource type="PackedScene" uid="uid://dssc5aclv83g7" path="res://assets/prefabs/JumpScarePrefab.tscn" id="5_k62dj"]
+[ext_resource type="PackedScene" uid="uid://bkkqyxmuf1f88" path="res://assets/prefabs/ui/PointerTextArrow.tscn" id="5_xe05w"]
 [ext_resource type="Script" uid="uid://dnwagqmfpnviu" path="res://src/systems/parallax/ParallaxSystem.gd" id="7_ghxc0"]
 
 [node name="Root" type="Control" unique_id=868332111]
@@ -20,7 +21,7 @@ target_scene = "res://assets/scenes/FortuneWheelScene.tscn"
 
 [node name="Curtains" parent="." unique_id=1459606750 instance=ExtResource("2_k62dj")]
 
-[node name="Exit" type="ColorRect" parent="." unique_id=180414193 node_paths=PackedStringArray("crt", "curtain_system", "jump_scare")]
+[node name="Exit" type="ColorRect" parent="." unique_id=180414193 node_paths=PackedStringArray("crt", "pointer", "curtain_system", "jump_scare")]
 layout_mode = 0
 offset_left = 886.0
 offset_top = 797.0
@@ -28,7 +29,11 @@ offset_right = 996.0
 offset_bottom = 847.0
 color = Color(1, 1, 1, 0)
 script = ExtResource("4_ghxc0")
+min_scale = null
+max_scale = null
+max_time = null
 crt = NodePath("../CRT")
+pointer = NodePath("../PointerTextArrow")
 curtain_system = NodePath("../Curtains")
 jump_scare = NodePath("../JumpScare")
 
@@ -56,7 +61,7 @@ text = "SOTERA"
 text_overrun_behavior = 1
 metadata/_edit_lock_ = true
 
-[node name="Play" type="ColorRect" parent="." unique_id=1097624220 node_paths=PackedStringArray("crt", "curtain_system", "jump_scare")]
+[node name="Play" type="ColorRect" parent="." unique_id=1097624220 node_paths=PackedStringArray("crt", "pointer", "curtain_system", "jump_scare")]
 layout_mode = 0
 offset_left = 744.0
 offset_top = 700.0
@@ -65,6 +70,7 @@ offset_bottom = 770.0
 color = Color(1, 1, 1, 0)
 script = ExtResource("5_2jmyb")
 crt = NodePath("../CRT")
+pointer = NodePath("../PointerTextArrow")
 curtain_system = NodePath("../Curtains")
 jump_scare = NodePath("../JumpScare")
 
@@ -79,6 +85,8 @@ text = "WELCOME"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
+
+[node name="PointerTextArrow" parent="." unique_id=766367298 instance=ExtResource("5_xe05w")]
 
 [node name="JumpScare" parent="." unique_id=1559867996 instance=ExtResource("5_k62dj")]
 visible = false

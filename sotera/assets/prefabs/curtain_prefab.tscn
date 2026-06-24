@@ -19,5 +19,3 @@ position = Vector2(1633, 529)
 rotation = -3.135981
 scale = Vector2(8, -8)
 texture = ExtResource("2_72x68")
-
-[node name="Node" type="Node" parent="." unique_id=1393755]
