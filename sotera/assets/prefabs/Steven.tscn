@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bdngkaf23ubev" path="res://assets/raw/Steven Spin.png" id="1_eybjq"]
 [ext_resource type="Script" uid="uid://bcijj14jimlhi" path="res://src/scripts/steven.gd" id="1_mo7w4"]
+[ext_resource type="Texture2D" uid="uid://ysbt6dg773mm" path="res://assets/images/shadow.tres" id="2_t44wf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mo7w4"]
 atlas = ExtResource("1_eybjq")
@@ -135,12 +136,10 @@ animations = [{
 scale = Vector2(4, 4)
 script = ExtResource("1_mo7w4")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1742904316]
-offset_left = -21.5
-offset_top = 33.0
-offset_right = 23.75
-offset_bottom = 54.0
-color = Color(0, 0, 0, 0.5372549)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1890397098]
+position = Vector2(-0.5, 41.500004)
+scale = Vector2(1.52625, 0.7315625)
+texture = ExtResource("2_t44wf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1276923601]
 sprite_frames = SubResource("SpriteFrames_r6e8m")

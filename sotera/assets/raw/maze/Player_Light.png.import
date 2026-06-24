@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxlquxjag0sj6"
-path="res://.godot/imported/Scary Maze lv 1 (Modular Tiles).png-433363ea34a7f5ecfe7ea5625a9059f8.ctex"
+uid="uid://bqykonrifpc3x"
+path="res://.godot/imported/Player_Light.png-1644c5d93890dc678b504cb914894d38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Scary Maze lv 1 (Modular Tiles).png"
-dest_files=["res://.godot/imported/Scary Maze lv 1 (Modular Tiles).png-433363ea34a7f5ecfe7ea5625a9059f8.ctex"]
+source_file="res://assets/raw/maze/Player_Light.png"
+dest_files=["res://.godot/imported/Player_Light.png-1644c5d93890dc678b504cb914894d38.ctex"]
 
 [params]
 
