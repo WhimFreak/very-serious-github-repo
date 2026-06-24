@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://d21j1diayi2fi" path="res://src/scripts/main/MainMenuExitBtn.gd" id="4_ghxc0"]
 [ext_resource type="Script" uid="uid://dwlphya06wa3a" path="res://src/scripts/main/MainMenuBtn.gd" id="5_2jmyb"]
 [ext_resource type="PackedScene" uid="uid://dssc5aclv83g7" path="res://assets/prefabs/JumpScarePrefab.tscn" id="5_k62dj"]
-[ext_resource type="Script" uid="uid://dnwagqmfpnviu" path="res://src/systems/parallax/ParallaxSystem.gd" id="7_ghxc0"]
 
 [node name="Root" type="Control" unique_id=868332111]
 layout_mode = 3
@@ -90,10 +89,3 @@ offset_left = 7.0
 offset_top = 12.0
 offset_right = 7.0
 offset_bottom = 12.0
-
-[node name="Systems" type="Node" parent="." unique_id=2041690459]
-
-[node name="Parallax" type="Node" parent="Systems" unique_id=1862539609 node_paths=PackedStringArray("layers")]
-script = ExtResource("7_ghxc0")
-max_offset = 12.0
-layers = [NodePath("../../Curtains")]

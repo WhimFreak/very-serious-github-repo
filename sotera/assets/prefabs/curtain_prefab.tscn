@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://b54k4cp23oa4j" path="res://src/systems/CurtainSystem.gd" id="1_d56ug"]
 [ext_resource type="Texture2D" uid="uid://dvvc2fgi0vcws" path="res://assets/raw/wheel-scene/curtains_half.png" id="2_d56ug"]
 
-[node name="Curtains" type="Node2D" unique_id=1427458567 node_paths=PackedStringArray("curtain_left", "curtain_right")]
+[node name="Curtains" type="Node2D" unique_id=1568423794 node_paths=PackedStringArray("curtain_left", "curtain_right")]
 script = ExtResource("1_d56ug")
 curtain_left = NodePath("CurtainLeft")
 curtain_right = NodePath("CurtainRight")
+metadata/_custom_type_script = "uid://bdbbnat5qmoiv"
 
 [node name="CurtainLeft" type="Sprite2D" parent="." unique_id=772435456]
 position = Vector2(271, 532)
@@ -18,3 +19,5 @@ position = Vector2(1633, 529)
 rotation = -3.135981
 scale = Vector2(8, -8)
 texture = ExtResource("2_d56ug")
+
+[node name="Node" type="Node" parent="." unique_id=1393755]

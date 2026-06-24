@@ -5,21 +5,14 @@ var _material: ShaderMaterial
 var _state: CrtDinamicState = CrtDinamicState.NORMAL
 var time: float
 var max_time: float
-var range_max_time: Vector2
+var range_max_time: Vector2 = Vector2(0.7, 1.25)
 
-var range_unifrom_max_distance: Vector2
+var range_unifrom_max_distance: Vector2 = Vector2(0.8, 0.4)
 var uniform_origin: Vector2
 var focus_origin: Vector2
 
-func _init(
-	shader_holder: ColorRect,
-	range_max_time := Vector2(0.7, 1.25),
-	range_unifrom_max_distance := Vector2(0.8, 0.4)
-	) -> void:
-	self.range_max_time = range_max_time
-	self.range_unifrom_max_distance= range_unifrom_max_distance
+func _init(shader_holder: ColorRect) -> void:
 	self._material = shader_holder.material
-	
 	self.uniform_origin = self._material.get_shader_parameter("pivot")
 
 func update(delta: float) -> void:

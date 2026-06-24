@@ -1,4 +1,4 @@
-extends Node
+extends ParallaxLayerA
 
 class_name CurtainSystem
 
