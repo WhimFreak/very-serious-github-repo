@@ -90,7 +90,11 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="Lever" type="Node2D" unique_id=1796701312]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wflit"]
+radius = 32.0
+height = 144.0
+
+[node name="Lever" type="StaticBody2D" unique_id=179663144]
 script = ExtResource("1_wldyw")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=406021225]
@@ -135,6 +139,10 @@ scale = Vector2(5.719, 5.719)
 sprite_frames = SubResource("SpriteFrames_s2pw8")
 animation = &"switch_left"
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1040071942]
+position = Vector2(0, -40)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_wflit")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="animation_finished" from="AnimatedLever" to="." method="_on_lever_animated_animation_finished"]
