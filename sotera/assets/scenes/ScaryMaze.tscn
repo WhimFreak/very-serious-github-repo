@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bkuwogcw7x8x1"]
 
 [ext_resource type="PackedScene" uid="uid://b830mwodbpleq" path="res://assets/prefabs/player.tscn" id="1_62l1t"]
-[ext_resource type="PackedScene" uid="uid://1r4ydw3tyo5s" path="res://assets/scenes/scary_maze_lv_1.tscn" id="1_owkrm"]
+[ext_resource type="PackedScene" uid="uid://1r4ydw3tyo5s" path="res://assets/map/scary_maze/scary_maze_lv_1.tscn" id="1_owkrm"]
 [ext_resource type="Texture2D" uid="uid://bqykonrifpc3x" path="res://assets/raw/maze/Player_Light.png" id="3_77in4"]
 [ext_resource type="PackedScene" uid="uid://bcnlbtdiicag" path="res://assets/prefabs/gui.tscn" id="4_3wkap"]
 [ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="5_hbjed"]
