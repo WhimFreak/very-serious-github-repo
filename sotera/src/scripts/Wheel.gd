@@ -59,6 +59,7 @@ func start_spinning()->void:
 		spin_speed = RandUtils.randf_range(min_speed,max_speed)
 		spin_time = RandUtils.randf_range(min_time,max_time)
 		elapsed_spin_time = 0
+		print("started spin")
 
 func stop_spinning()->void:
 	#Check if wheel is spinning in case its called outside the FSM
@@ -66,3 +67,7 @@ func stop_spinning()->void:
 		state = WHEELSTATE.IDLE
 		var _result = items.get(int(spin_pos))
 		#publish the result here
+	
+	if state == WHEELSTATE.IDLE:
+		print("stopped spin")
+		SoundPool.play_sound(SoundPool.WHEEL_STOP)

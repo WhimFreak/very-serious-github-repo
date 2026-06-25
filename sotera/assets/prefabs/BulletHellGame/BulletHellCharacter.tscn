@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dai534ekpx5j5" path="res://src/scripts/BulletHellGame/BulletHellPlayer.gd" id="1_2bc3i"]
 [ext_resource type="Texture2D" uid="uid://dnlh3o2ypre26" path="res://assets/raw/MC_TD_Idle.png" id="2_3fn2k"]
 [ext_resource type="Texture2D" uid="uid://bq3pke1mlcc4" path="res://assets/raw/MC_TD_Walk.png" id="3_b8gty"]
-[ext_resource type="AudioStream" uid="uid://n7rvjv4now1c" path="res://assets/audio/sfx/joentnt-walk-on-grass-1-291984.mp3" id="4_0fflw"]
 [ext_resource type="PackedScene" uid="uid://dkn2kpahpr8ds" path="res://assets/prefabs/BulletHellGame/BulletHellGun.tscn" id="5_3fn2k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mouw8"]
@@ -430,9 +429,6 @@ scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_ixt6l")
 animation = &"leftrun"
 frame_progress = 0.16280946
-
-[node name="Footsteps" type="AudioStreamPlayer2D" parent="." unique_id=2013423339]
-stream = ExtResource("4_0fflw")
 
 [node name="BulletHellGun" parent="." unique_id=554639469 instance=ExtResource("5_3fn2k")]
 

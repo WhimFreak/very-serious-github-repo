@@ -56,6 +56,4 @@ func _physics_process(_delta):
 func _on_animations_frame_changed():
 	if $Animations.animation in ["forwardrun", "leftrun", "rightrun", "backrun"]:
 		if $Animations.frame in [0, 4]:
-			$Footsteps.play()
-	else:
-		$Footsteps.stop()
+			SoundPool.play_random_shuffled_sound(SoundPool.PLAYER_FOOTSTEPS)

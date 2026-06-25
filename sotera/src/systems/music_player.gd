@@ -1,4 +1,4 @@
-# Make autoload?
+# music_player autoload
 extends Node
 
 const _STREAM_COUNT : int = 4

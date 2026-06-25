@@ -91,12 +91,10 @@ func _physics_process(_delta):
 
 #frame perfect / footsteps
 func _on_animations_frame_changed():
-	if animations.animation in ["forwardrun", "leftrun", "rightrun", "backrun"]:
-		if animations.frame in [0, 4]:
-			footsteps.play()
-			
-	else:
-		footsteps.stop()
+	if $Animations.animation in ["forwardrun", "leftrun", "rightrun", "backrun"]:
+		if $Animations.frame in [0, 4]:
+			SoundPool.play_random_shuffled_sound(SoundPool.PLAYER_FOOTSTEPS) # TODO: if time, make custom footstep groups for each scene
+
 		
 func takeDamage(damage:int) -> void:
 	if currentiFrames <= 0:

@@ -17,9 +17,6 @@ var time: float
 @export var jump_scare: JumpScareController
 # --------------- Used to move curtaints a little on hover ---------------------
 
-@onready var click_sound: AudioStreamPlayer = $"Click Sound"
-
-@export var range_click_sound_db: Vector2 = Vector2(-12.2, -9.8)
 var pressed: bool = false # self tracking state
 
 var motion: CameraMotion = CameraMotion.new()
@@ -79,6 +76,8 @@ func _on_hover_enter():
 	
 	state = MainMenuBtnState.GAIN_FOCUS
 	time = 0.0
+	
+	SoundPool.play_random_sound(SoundPool.UI_SELECT)
 
 func _on_hover_exit():
 	# all triggered aniamtions -> player visaul feedback
@@ -107,5 +106,4 @@ func _process_input(is_pressed: bool) -> void:
 		_on_click()
 		
 func _on_click() -> void:
-	click_sound.volume_db = randf_range(range_click_sound_db.x, range_click_sound_db.y)
-	click_sound.play(0.0)
+	SoundPool.play_random_sound(SoundPool.UI_CLICK)

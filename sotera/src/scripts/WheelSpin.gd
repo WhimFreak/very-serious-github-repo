@@ -25,6 +25,8 @@ var single_value_height_in_texture = 1.0 / items.size();
 var value_idx = 2;
 
 func _process(delta: float) -> void:
+	if state == WHEELSTATE.IDLE: 
+		return
 	if elapsed_spin_time < spin_time:
 		speed_multiplier = 1.0 - lerp(
 			0,
@@ -58,11 +60,20 @@ func start_spinning():
 	spin_speed = RandUtils.randf_range(min_speed, max_speed)
 	spin_time = RandUtils.randf_range(min_time, max_time)
 	elapsed_spin_time = 0
+	print("started spin")
+
+	SoundPool.play_sound(SoundPool.WHEEL_START)
 
 	$WheelSpinEffect.start_speedup()
 	$WheelSpinEffect2.start_speedup()
-		
+	
+	await get_tree().create_timer(spin_time * 0.45).timeout
+	
+	SoundPool.play_sound(SoundPool.WHEEL_STOP)
+	
 func stop_spinning() -> void:
 	state = WHEELSTATE.IDLE
 	$WheelSpinEffect.start_slowdown()
 	$WheelSpinEffect2.start_slowdown()
+	print("stopped spin")
+	SoundPool.play_sound(SoundPool.MINIGAME_SELECTED)

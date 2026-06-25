@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dwv3rec7arkgt"
+path="res://.godot/imported/Jumpscare 1 fx (shava).wav-ed45a2355b4062748259897aa9c5ee68.sample"
+
+[deps]
+
+source_file="res://assets/audio/Jumpscare 1 fx (shava).wav"
+dest_files=["res://.godot/imported/Jumpscare 1 fx (shava).wav-ed45a2355b4062748259897aa9c5ee68.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
