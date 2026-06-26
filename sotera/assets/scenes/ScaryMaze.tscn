@@ -53,6 +53,8 @@ point_light = NodePath("../Player2/PointLight2D")
 darkness = NodePath("../CanvasModulate")
 visual_timer_anim = NodePath("../VisualTimerAnim")
 
+[node name="AmbianceSoundTimer" type="Timer" parent="ScaryMazeLv1" unique_id=2068793606]
+
 [node name="worldboundary" type="Node2D" parent="." unique_id=638251911]
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="worldboundary" unique_id=1649787983]
@@ -102,5 +104,4 @@ texture_scale = 1.2
 
 [node name="Camera2D" type="Camera2D" parent="Player2" unique_id=1338842814]
 
-[node name="VisualTimerAnim" type="AnimationPlayer" parent="." unique_id=1715962903]
-libraries/ = SubResource("AnimationLibrary_y4yld")
+[connection signal="timeout" from="ScaryMazeLv1/AmbianceSoundTimer" to="ScaryMazeLv1" method="_on_ambiance_sound_timer_timeout"]

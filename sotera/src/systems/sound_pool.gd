@@ -32,10 +32,34 @@ const MINIGAME_FAIL : AudioStream = preload("res://assets/audio/minigame_fail.wa
 
 const JUMPSCARE_1 : AudioStream = preload("res://assets/audio/Jumpscare 1.wav") # TODO
 const JUMPSCARE_2 : AudioStream = preload("res://assets/audio/Jumpscare 2 (shava).wav")
-const JUMPSCARE : Array[AudioStream] = [
+const JUMPSCARE_3 : AudioStream = preload("res://assets/audio/Jumpscare 3 (shava + fishe).wav")
+const JUMPSCARE_4 : AudioStream = preload("res://assets/audio/Jumpscare 4 (shava + fishe).wav")
+
+const JUMPSCARE_V1 : Array[AudioStream] = [
 	JUMPSCARE_1,
 	JUMPSCARE_2,
 ]
+
+const JUMPSCARE_V2 : Array[AudioStream] = [
+	JUMPSCARE_3,
+	JUMPSCARE_4,
+]
+
+const SPOOKY_AMBIANCE_ELEMENT_1 : AudioStream = preload("res://assets/audio/voice/spooky_ambiance_element_1.wav")
+const SPOOKY_AMBIANCE_ELEMENT_2 : AudioStream = preload("res://assets/audio/voice/spooky_ambiance_element_2.wav")
+const SPOOKY_AMBIANCE_ELEMENT_3 : AudioStream = preload("res://assets/audio/voice/spooky_ambiance_element_3.wav")
+const SPOOKY_AMBIANCE_ELEMENT_4 : AudioStream = preload("res://assets/audio/voice/spooky_ambiance_element_4.wav")
+const SPOOKY_AMBIANCE_ELEMENT_5 : AudioStream = preload("res://assets/audio/voice/spooky_ambiance_element_5.wav")
+const SPOOKY_AMBIANCE_ELEMENT_6 : AudioStream = preload("res://assets/audio/voice/spooky_ambiance_element_7.wav")
+const SPOOKY_AMBIANCE_ONESHOT : Array[AudioStream] = [
+	SPOOKY_AMBIANCE_ELEMENT_1,
+	SPOOKY_AMBIANCE_ELEMENT_2,
+	SPOOKY_AMBIANCE_ELEMENT_3,
+	SPOOKY_AMBIANCE_ELEMENT_4,
+	SPOOKY_AMBIANCE_ELEMENT_5,
+	SPOOKY_AMBIANCE_ELEMENT_6,
+]
+
 
 const CONTRACT_PICKUP : AudioStream = preload("res://assets/audio/sfx/Contract fx (shava).wav")
 
@@ -99,6 +123,8 @@ func _get_max_concurrent(sound : AudioStream) -> int:
 		return 2
 	if sound in DIALOGUE_NOISES_STEVE:
 		return 1
+	if sound in SPOOKY_AMBIANCE_ONESHOT:
+		return 2
 
 	return _SOUND_DEFAULT_CONCURRENCY
 
@@ -198,8 +224,12 @@ func _apply_custom_sound_volume(player : AudioStreamPlayer, _sound : AudioStream
 		player.volume_db = -3.0
 	if _sound in DIALOGUE_NOISES_STEVE:
 		player.volume_db = randf_range(-5.5, 3.8)
-	if _sound in JUMPSCARE:
+	if _sound in JUMPSCARE_V1:
 		player.volume_db = randf_range(-3.0, 6.5)
+	if _sound in JUMPSCARE_V2:
+		player.volume_db = randf_range(0.0, 6.5)
+	if _sound in SPOOKY_AMBIANCE_ONESHOT:
+		player.volume_db = randf_range(-12.5, -6.0)
 	
 	return
 
@@ -230,7 +260,11 @@ func _apply_pitch_modulation(player : AudioStreamPlayer, _sound : AudioStream) -
 		player.pitch_scale = randf_range(0.64, 0.74)
 	if _sound in DIALOGUE_NOISES_STEVE:
 		player.pitch_scale = randf_range(0.75, 1.0)
-	if _sound in JUMPSCARE:
+	if _sound in JUMPSCARE_V1:
 		player.pitch_scale = randf_range(0.98, 1.1)
+	if _sound in JUMPSCARE_V2:
+		player.pitch_scale = randf_range(0.98, 1.1)
+	if _sound in SPOOKY_AMBIANCE_ONESHOT:
+		player.pitch_scale = randf_range(0.89, 1.07)
 	
 	return

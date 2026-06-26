@@ -56,12 +56,13 @@ func _get_random_jumpscare_type() -> JumpscareType:
 	
 func jumpscare(type: JumpscareType) -> void:
 	_set_animation(type)
-	_init_voice()
+	#_init_voice()
 	visible = true
 	_state = JumpscareControllerState.JUMP
-	
-func _init_voice() -> void:
-	SoundPool.play_random_sound(SoundPool.JUMPSCARE)
+
+# Separating from controller to have as custom sound for each scare
+#func _init_voice() -> void:
+	#SoundPool.play_random_sound(SoundPool.JUMPSCARE) 
 	
 func stop_jumpscare() -> void:
 	visible = false
