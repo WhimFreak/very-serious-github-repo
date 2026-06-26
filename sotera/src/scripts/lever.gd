@@ -8,8 +8,11 @@ extends StaticBody2D
 signal lever_pulled;
 
 var player_in_area: bool = false
+var player_can_pull = true # todo change later
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	#if player_can_pull: # uncomment later
+		#label.visible = true
 	label.visible = true
 	player_in_area = true
 	var tween = create_tween()
@@ -31,5 +34,9 @@ func LeverPulled():
 			AnimatedLeverSprite.play_backwards("switch_left")
 
 func _input(event):
-	if event.is_action_pressed("interact") && player_in_area:
+	if event.is_action_pressed("interact") && player_in_area && player_can_pull:
 		LeverPulled()
+
+
+func _on_dialogue_text_speech_ended() -> void:
+	player_can_pull = true
