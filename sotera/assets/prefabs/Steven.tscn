@@ -135,7 +135,7 @@ animations = [{
 radius = 17.564169
 
 [node name="Steven" type="StaticBody2D" unique_id=1346860183]
-scale = Vector2(4, 4)
+scale = Vector2(5, 5)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1890397098]
 position = Vector2(-0.5, -0.24999619)
