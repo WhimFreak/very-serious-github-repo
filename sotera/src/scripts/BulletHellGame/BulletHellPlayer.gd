@@ -1,13 +1,8 @@
-extends CharacterBody2D
-class_name BulletHellCharacter
+extends Player
+class_name BulletHellPlayer
 
-@export var speed: float = 500
 @export var gun: BulletHellGun
 @export var iFrames: int
-@export var maxHp: int
-
-@onready var hp = maxHp
-@onready var animations: AnimatedSprite2D = $Animations
 
 var currentiFrames: int = 0
 var mousePos: Vector2
@@ -23,52 +18,46 @@ const down_theta = PI/2
 
 #Starting screen parameters
 func _ready():
-	animations.play("forwardidle")
-	mousePos = get_viewport().get_mouse_position()
-	
-func player_movement():
-#player movement
-	var direction = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
-	velocity = direction * speed
-	
+	super._ready()
+	mousePos = get_global_mouse_position()
 	
 func idle_animation():
 	if theta>down_right_theta && theta<down_left_theta:
-		animations.play("forwardidle")
+		$Animations.play("forwardidle")
 	if theta<up_right_theta&&theta>up_left_theta:
-		animations.play("backidle")
+		$Animations.play("backidle")
 	if theta > down_left_theta || theta<up_left_theta:
-		animations.play("leftidle")
+		$Animations.play("leftidle")
 	if theta < down_right_theta && theta > up_right_theta:
-		animations.play("rightidle")
+		$Animations.play("rightidle")
 		
 func movement_animation():
 	if velocity.x == 0 and velocity.y > 0:
 		if theta > 0:
-			animations.play("forwardrun")
+			$Animations.play("forwardrun")
 		else:
-			animations.play("backrun_reverse")
+			$Animations.play_backwards("backrun")
 	elif velocity.x == 0 and velocity.y < 0:
 		if theta>0:
-			animations.play("forwardrun_reverse")
+			$Animations.play_backwards("forwardrun")
 		else:
-			animations.play("backrun")
+			$Animations.play("backrun")
 	elif velocity.x > 0:
 		if theta>up_theta && theta<down_theta:
-			animations.play("rightrun")
-			animations.flip_h = false
+			$Animations.play("rightrun")
+			$Animations.flip_h = false
 		else:
-			animations.flip_h = true
-			animations.play("leftrun_reverse")
+			$Animations.flip_h = true
+			$Animations.play_backwards("leftrun")
 	elif velocity.x < 0:
 		if theta>up_theta && theta<down_theta:
-			animations.play("rightrun_reverse")
-			animations.flip_h = false
+			$Animations.play_backwards("rightrun")
+			$Animations.flip_h = false
 		else:
-			animations.flip_h = true
-			animations.play("leftrun")
+			$Animations.flip_h = true
+			$Animations.play("leftrun")
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	if currentiFrames > 0:
 		currentiFrames -= 1
 
@@ -77,32 +66,10 @@ func _physics_process(_delta):
 
 	if Input.is_action_just_pressed("action"):
 		gun.shoot(mousePos)
-	player_movement()
-	
-	#player animations
-	if velocity == Vector2.ZERO:
-		idle_animation()
+	super._physics_process(delta)
 
-	else:
-		movement_animation()
-		
-	move_and_slide()
-
-#frame perfect / footsteps
-func _on_animations_frame_changed():
-	if $Animations.animation in ["forwardrun", "leftrun", "rightrun", "backrun", "forwardrun_reverse", "leftrun_reverse", "rightrun_reverse", "backrun_reverse"]:
-		if $Animations.frame in [0, 4]:
-			SoundPool.play_random_shuffled_sound(SoundPool.PLAYER_FOOTSTEPS)
-
-		
 func takeDamage(damage:int) -> void:
 	if currentiFrames <= 0:
 		currentiFrames = iFrames
-		hp -= damage
-		Events.loose_life.emit()
+		Events.lose_life.emit()
 		
-	if hp <= 0:
-		#Minigame over
-		print("Player Dead")
-		SoundPool.play_sound(SoundPool.MINIGAME_FAIL)
-		Events.change_level("res://assets/scenes/FortuneWheelScene.tscn")

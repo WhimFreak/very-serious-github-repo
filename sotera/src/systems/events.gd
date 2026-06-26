@@ -7,7 +7,7 @@ signal fade_in_done
 signal game_over
 
 signal collect_contract
-signal loose_life
+signal lose_life
 
 var spinner_starting_positions = [
 	0.09814815386375, # Standard maze

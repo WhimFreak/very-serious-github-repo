@@ -273,11 +273,13 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5wjao"]
-radius = 4.9999995
-height = 12.4
+radius = 3.4999998
+height = 6.9999995
 
 [node name="Player" type="CharacterBody2D" unique_id=1229557920]
+y_sort_enabled = true
 collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_4wcc8")
 
 [node name="DustVFX" parent="." unique_id=630021936 instance=ExtResource("5_hdmdu")]
@@ -292,7 +294,7 @@ sprite_frames = SubResource("SpriteFrames_t5ofi")
 animation = &"rightrun"
 
 [node name="Hurtbox" type="CollisionShape2D" parent="." unique_id=1624050999]
-position = Vector2(0, 20.999998)
+position = Vector2(0, 47)
 scale = Vector2(10, 10)
 shape = SubResource("CapsuleShape2D_5wjao")
 

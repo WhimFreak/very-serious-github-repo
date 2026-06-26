@@ -11,7 +11,7 @@ class_name BulletHellEnemy
 @onready var animations: AnimatedSprite2D = $Animations
 @onready var hp = maxHp
 
-var player: BulletHellCharacter
+var player: BulletHellPlayer
 var spawnPos: Vector2
 var damagingPlayer = false
 var state: BHENEMYSTATE = BHENEMYSTATE.DISABLED
@@ -78,7 +78,7 @@ func movement_animation():
 			animations.flip_h = true
 			animations.play("walk_right")
 
-func spawn(spawnPos:Vector2,player:BulletHellCharacter)->void:
+func spawn(spawnPos:Vector2,player:BulletHellPlayer)->void:
 	state = BHENEMYSTATE.MOVING
 	self.spawnPos = spawnPos
 	position = spawnPos
@@ -106,7 +106,7 @@ func destroy()->void:
 		$Animations.hide()
 
 func _on_attack_hitbox_body_entered(body: Node2D) -> void:
-	if body is BulletHellCharacter:
+	if body is BulletHellPlayer:
 		if state == BHENEMYSTATE.MOVING:
 			state = BHENEMYSTATE.ATTACKING
 			damagingPlayer = true
@@ -114,7 +114,7 @@ func _on_attack_hitbox_body_entered(body: Node2D) -> void:
 
 
 func _on_attack_hitbox_body_exited(body: Node2D) -> void:
-	if body is BulletHellCharacter:
+	if body is BulletHellPlayer:
 		if state==BHENEMYSTATE.ATTACKING:
 			damagingPlayer = false
 			state = BHENEMYSTATE.MOVING
