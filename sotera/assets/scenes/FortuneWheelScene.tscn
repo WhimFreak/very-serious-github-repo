@@ -3,19 +3,32 @@
 [ext_resource type="PackedScene" uid="uid://bcnlbtdiicag" path="res://assets/prefabs/gui.tscn" id="1_8cy1c"]
 [ext_resource type="Texture2D" uid="uid://n3ucyq26j0qu" path="res://assets/raw/wheel-scene/stage.png" id="1_cooqm"]
 [ext_resource type="Script" uid="uid://fax1pcst4y2u" path="res://src/scripts/fortune_wheel_scene.gd" id="1_d7hmc"]
+[ext_resource type="Texture2D" uid="uid://rq0tixe28hd6" path="res://assets/raw/wheel-scene/stage_background.png" id="2_fe3tk"]
+[ext_resource type="Texture2D" uid="uid://jn5dlxvi8j4h" path="res://assets/raw/wheel-scene/audience.png" id="2_ybih4"]
+[ext_resource type="Texture2D" uid="uid://cgb6o2js40ab0" path="res://assets/raw/wheel-scene/stage_single.png" id="3_fe3tk"]
 [ext_resource type="PackedScene" uid="uid://m03c8gghqx32" path="res://assets/prefabs/Steven.tscn" id="4_4fco3"]
+[ext_resource type="Texture2D" uid="uid://bvpcryijxkcj8" path="res://assets/raw/wheel-scene/audience/DemonAudience_1_Zombie.png" id="4_mietd"]
+[ext_resource type="Texture2D" uid="uid://d3u2luqhfgkwc" path="res://assets/raw/wheel-scene/audience/DemonAudience_2_Witch.png" id="5_556sf"]
 [ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="6_4arlo"]
+[ext_resource type="Texture2D" uid="uid://dwwp8ueg0dg83" path="res://assets/raw/wheel-scene/lights.png" id="6_4tcif"]
+[ext_resource type="Texture2D" uid="uid://cncnklcyght3j" path="res://assets/raw/wheel-scene/audience/DemonAudience_3_Skeleton.png" id="6_byliy"]
 [ext_resource type="PackedScene" uid="uid://ctimv56j7qqjo" path="res://assets/prefabs/lever.tscn" id="7_cooqm"]
 [ext_resource type="Script" uid="uid://c2p2in027g43g" path="res://src/scripts/wheel/FortuneWheelCurtainsClick.gd" id="7_d7hmc"]
+[ext_resource type="Texture2D" uid="uid://eiv6636tpabr" path="res://assets/raw/wheel-scene/audience/DemonAudience_4_Werewolf.png" id="7_vh712"]
+[ext_resource type="Texture2D" uid="uid://dy7cbhjlql6v2" path="res://assets/raw/wheel-scene/sign_spin_to_live.png" id="8_60qeo"]
 [ext_resource type="PackedScene" uid="uid://bwav05t3mcd2k" path="res://assets/prefabs/curtain_prefab.tscn" id="8_dsjn4"]
+[ext_resource type="Texture2D" uid="uid://bfcb4jartyw5m" path="res://assets/raw/wheel-scene/audience/DemonAudience_5_FrankMons.png" id="8_yf44t"]
 [ext_resource type="PackedScene" uid="uid://c7kga4lmflwpr" path="res://assets/prefabs/ui/stage_player.tscn" id="9_8cy1c"]
+[ext_resource type="Texture2D" uid="uid://dcts5wo7s6817" path="res://assets/raw/wheel-scene/audience/DemonAudience_6_Vampire.png" id="9_n1cx3"]
 [ext_resource type="PackedScene" uid="uid://cchy7yoogu2m4" path="res://assets/prefabs/ui/FortuneWheelPauseUI.tscn" id="10_6vnka"]
+[ext_resource type="Texture2D" uid="uid://c6ebwkifxh6du" path="res://assets/raw/wheel-scene/audience/DemonAudience_7_Hockeymask.png" id="10_jkhbp"]
 [ext_resource type="PackedScene" uid="uid://dmi2oqodqjn68" path="res://assets/prefabs/ui/trackers/mini_game_tracker.tscn" id="11_cl5pl"]
 [ext_resource type="Texture2D" uid="uid://bs33hui6wy3e7" path="res://assets/raw/wheel-scene/fortune_wheel/wheel_icon_maze.png" id="13_6vnka"]
 [ext_resource type="Texture2D" uid="uid://c6efpemuy42tc" path="res://assets/raw/wheel-scene/fortune_wheel/wheel_icon_bullets.png" id="14_4tcif"]
 [ext_resource type="Texture2D" uid="uid://cllxxawp4bkrl" path="res://assets/raw/wheel-scene/fortune_wheel/wheel_icon_quiz.png" id="15_0wqvk"]
 [ext_resource type="Script" uid="uid://dnwagqmfpnviu" path="res://src/systems/parallax/ParallaxSystem.gd" id="15_1cyg4"]
 [ext_resource type="Texture2D" uid="uid://do1jnfte64gyp" path="res://assets/raw/wheel-scene/fortune_wheel/wheel_icon_scary.png" id="16_83ar3"]
+[ext_resource type="PackedScene" uid="uid://hubowr5basua" path="res://assets/prefabs/Wheel.tscn" id="16_556sf"]
 [ext_resource type="PackedScene" uid="uid://bl5kwk28ennhq" path="res://assets/prefabs/ui/dialogue_text.tscn" id="17_6vnka"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t6tgv"]
@@ -25,51 +38,139 @@ distance = 3.9999962
 script = ExtResource("1_d7hmc")
 curtains = NodePath("Group Curtains/Curtains")
 
-[node name="Stage" type="Sprite2D" parent="." unique_id=969645194]
+[node name="World" type="Node" parent="." unique_id=1699964275]
+
+[node name="BG" type="Node" parent="World" unique_id=1342912320]
+
+[node name="StageBackground" type="Sprite2D" parent="World/BG" unique_id=2040698246]
+position = Vector2(958.99976, 522)
+scale = Vector2(7.228125, 7.6277776)
+texture = ExtResource("2_fe3tk")
+metadata/_edit_lock_ = true
+
+[node name="BG2" type="Sprite2D" parent="World/BG" unique_id=481166884]
+visible = false
+position = Vector2(935, 508)
+scale = Vector2(6.9375, 6.9055557)
+texture = ExtResource("2_ybih4")
+metadata/_edit_lock_ = true
+
+[node name="Audience" type="Node2D" parent="World" unique_id=1246452229]
+visible = false
+
+[node name="v1" type="Sprite2D" parent="World/Audience" unique_id=884270620]
+position = Vector2(866.00006, 529)
+scale = Vector2(6.6666665, 4.8166666)
+texture = ExtResource("4_mietd")
+
+[node name="v2" type="Sprite2D" parent="World/Audience" unique_id=1485974649]
+position = Vector2(454.00006, 430)
+scale = Vector2(6.8, 4.6666665)
+texture = ExtResource("5_556sf")
+
+[node name="v3" type="Sprite2D" parent="World/Audience" unique_id=273808284]
+position = Vector2(200, 563)
+scale = Vector2(7.133333, 4.55)
+texture = ExtResource("6_byliy")
+
+[node name="v4" type="Sprite2D" parent="World/Audience" unique_id=399022876]
+position = Vector2(617, 592)
+scale = Vector2(4.6, 2.9166667)
+texture = ExtResource("7_vh712")
+
+[node name="v5" type="Sprite2D" parent="World/Audience" unique_id=424100993]
+position = Vector2(1549, 563)
+scale = Vector2(4.366667, 3.3333333)
+texture = ExtResource("8_yf44t")
+
+[node name="v6" type="Sprite2D" parent="World/Audience" unique_id=334639175]
+position = Vector2(1687.9999, 567)
+scale = Vector2(3.2500005, 2.375)
+texture = ExtResource("9_n1cx3")
+
+[node name="v7" type="Sprite2D" parent="World/Audience" unique_id=1402721307]
+position = Vector2(1779.9999, 619)
+scale = Vector2(4.8500013, 5.275)
+texture = ExtResource("10_jkhbp")
+
+[node name="Stage" type="Node" parent="World" unique_id=1202452938]
+
+[node name="StageSingle" type="Sprite2D" parent="World/Stage" unique_id=1749084055]
+position = Vector2(910.00006, 608)
+scale = Vector2(8.338673, 5.9624996)
+texture = ExtResource("3_fe3tk")
+metadata/_edit_lock_ = true
+
+[node name="Stage" type="Sprite2D" parent="World/Stage" unique_id=969645194]
+visible = false
 position = Vector2(960.0001, 544)
 scale = Vector2(6.0027785, 6.0027785)
 texture = ExtResource("1_cooqm")
+metadata/_edit_lock_ = true
 
-[node name="worldboundary" type="Node2D" parent="." unique_id=1162189176]
+[node name="FG" type="Node" parent="World" unique_id=1553769669]
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="worldboundary" unique_id=133051340]
+[node name="WheelSpin" parent="World/FG" unique_id=1465385523 instance=ExtResource("16_556sf")]
+position = Vector2(903, 723)
+scale = Vector2(0.8, 0.8)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="worldboundary/StaticBody2D4" unique_id=896232653]
+[node name="worldboundary" type="Node2D" parent="World/FG" unique_id=1162189176]
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="World/FG/worldboundary" unique_id=133051340]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/FG/worldboundary/StaticBody2D4" unique_id=896232653]
 position = Vector2(887, 1128)
 shape = SubResource("WorldBoundaryShape2D_t6tgv")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="worldboundary" unique_id=973391984]
+[node name="StaticBody2D" type="StaticBody2D" parent="World/FG/worldboundary" unique_id=973391984]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="worldboundary/StaticBody2D" unique_id=102201382]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/FG/worldboundary/StaticBody2D" unique_id=102201382]
 position = Vector2(-91, 508)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_t6tgv")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="worldboundary" unique_id=122644830]
+[node name="StaticBody2D3" type="StaticBody2D" parent="World/FG/worldboundary" unique_id=122644830]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="worldboundary/StaticBody2D3" unique_id=332451517]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/FG/worldboundary/StaticBody2D3" unique_id=332451517]
 position = Vector2(1968, 467)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_t6tgv")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="worldboundary" unique_id=231815583]
+[node name="StaticBody2D2" type="StaticBody2D" parent="World/FG/worldboundary" unique_id=231815583]
 position = Vector2(80, 632)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="worldboundary/StaticBody2D2" unique_id=269391746]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/FG/worldboundary/StaticBody2D2" unique_id=269391746]
 position = Vector2(843, -38)
 rotation = -3.1415925
 shape = SubResource("WorldBoundaryShape2D_t6tgv")
 
-[node name="Steven" parent="." unique_id=2100930359 instance=ExtResource("4_4fco3")]
+[node name="Steven" parent="World/FG" unique_id=2100930359 instance=ExtResource("4_4fco3")]
 position = Vector2(418, 806)
+metadata/_edit_lock_ = true
 
-[node name="Lever" parent="." unique_id=1796701312 instance=ExtResource("7_cooqm")]
+[node name="Lever" parent="World/FG" unique_id=1796701312 instance=ExtResource("7_cooqm")]
 position = Vector2(1472, 840)
 
-[node name="StagePlayer" parent="." unique_id=143653979 instance=ExtResource("9_8cy1c")]
+[node name="StagePlayer" parent="World/FG" unique_id=143653979 instance=ExtResource("9_8cy1c")]
 position = Vector2(1655.9999, 959.99994)
 
 [node name="Group Curtains" type="Node" parent="." unique_id=2052619427]
+
+[node name="SignSpinToLive" type="Sprite2D" parent="Group Curtains" unique_id=1768092316]
+position = Vector2(318, 148)
+scale = Vector2(3.942857, 4.5856166)
+texture = ExtResource("8_60qeo")
+
+[node name="Lights" type="Sprite2D" parent="Group Curtains" unique_id=1548419074]
+position = Vector2(1520, 348)
+scale = Vector2(6.4415197, 5.9503813)
+texture = ExtResource("6_4tcif")
+
+[node name="Lights2" type="Sprite2D" parent="Group Curtains" unique_id=1865077684]
+position = Vector2(327, 332)
+scale = Vector2(-5.276188, 5.623645)
+texture = ExtResource("6_4tcif")
 
 [node name="Curtains" parent="Group Curtains" unique_id=1568423794 instance=ExtResource("8_dsjn4")]
 metadata/_edit_lock_ = true
@@ -96,8 +197,10 @@ polygon = PackedVector2Array(58, -68, 65, 1189, -84, 1182, -98, -72)
 curtains = NodePath("../../Group Curtains/Curtains")
 
 [node name="CRT" parent="CanvasLayer" unique_id=719073563 instance=ExtResource("6_4arlo")]
+metadata/_edit_lock_ = true
 
 [node name="GUI" parent="CanvasLayer" unique_id=233616670 instance=ExtResource("1_8cy1c")]
+metadata/_edit_lock_ = true
 
 [node name="MiniGameTracker" parent="." unique_id=914605974 instance=ExtResource("11_cl5pl")]
 game_icons = {
@@ -112,6 +215,7 @@ offset_left = 320.0
 offset_top = 351.0
 offset_right = -1429.3333
 offset_bottom = -633.0
+metadata/_edit_lock_ = true
 
 [node name="Systems" type="Node" parent="." unique_id=323798835]
 
@@ -119,4 +223,4 @@ offset_bottom = -633.0
 script = ExtResource("15_1cyg4")
 layers = [NodePath("../../Group Curtains/Curtains")]
 
-[connection signal="speech_ended" from="DialogueText" to="Lever" method="_on_dialogue_text_speech_ended"]
+[connection signal="speech_ended" from="DialogueText" to="World/FG/Lever" method="_on_dialogue_text_speech_ended"]
