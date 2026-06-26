@@ -4,6 +4,7 @@ class_name PauseBox
 enum PauseBoxState{ HIDDEN, APPEARING, SHOWN, DISAPPEARING }
 @export var range_full_appear_visibility_time: Vector2 = Vector2(0.5, 1.5)
 @export var curtains: CurtainSystem
+@export var dialogue: Dialogue
 
 @onready var pause = $Pause
 @onready var space_return = $"Space To Return"
@@ -58,8 +59,12 @@ func show_pause() -> void:
 
 # override default behavior of super class
 func action() -> void:
+	if !dialogue.is_finished(): return
+	
 	# action_open_curtains()
+	# spam SPACE (space key is defined in other file) -> to open/close curtains
 	if curtains.closed(): curtains.open_full()
+	elif curtains.opened(): curtains.close_full()
 
 func hide_pause() -> void:
 	var skip: bool = _state == PauseBoxState.DISAPPEARING || _state == PauseBoxState.HIDDEN

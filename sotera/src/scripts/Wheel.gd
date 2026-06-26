@@ -26,8 +26,8 @@ var speed_mult:float = 0.0
 #current position in the list of items [0,list size]
 var spin_pos:float = 0.0
 
-func _input(event):
-	if event.is_action_pressed("ui_accept"):
+func _input(e: InputEvent) -> void:
+	if e.is_action_pressed("ui_accept"):
 		start_spinning()
 
 # Called when the node enters the scene tree for the first time.
@@ -46,14 +46,12 @@ func _physics_process(delta: float) -> void:
 				speed_mult = 1.0-lerp(0,1,TweenUtils.ease_out_quart(elapsed_spin_time/spin_time))
 				spin_pos = fmod(spin_pos+spin_speed * delta * speed_mult,items.size())
 				elapsed_spin_time+=delta
-			else:
-				stop_spinning()
-				pass
+			else: _stop()
 		WHEELSTATE.IDLE:
 			pass
 	
 #Call from the lever
-func start_spinning()->void:
+func start_spinning() -> void:
 	if state == WHEELSTATE.IDLE:
 		state = WHEELSTATE.SPINNING
 		spin_speed = RandUtils.randf_range(min_speed,max_speed)
@@ -61,13 +59,11 @@ func start_spinning()->void:
 		elapsed_spin_time = 0
 		print("started spin")
 
-func stop_spinning()->void:
+func _stop() -> void:
 	#Check if wheel is spinning in case its called outside the FSM
-	if state == WHEELSTATE.SPINNING:
-		state = WHEELSTATE.IDLE
-		var _result = items.get(int(spin_pos))
-		#publish the result here
+	state = WHEELSTATE.IDLE
+	var _result = items.get(int(spin_pos))
+	#publish the result here
 	
-	if state == WHEELSTATE.IDLE:
-		print("stopped spin")
-		SoundPool.play_sound(SoundPool.WHEEL_STOP)
+	print("stopped spin")
+	SoundPool.play_sound(SoundPool.WHEEL_STOP)
