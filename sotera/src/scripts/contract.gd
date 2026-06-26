@@ -11,7 +11,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	$Label.hide()
 
 func _collect_contract():
-	Events.collect_contract.emit()
+	Events.on_minigame_end.emit()
 	SoundPool.play_sound(SoundPool.UI_PICKUP)
 	SoundPool.play_sound(SoundPool.CONTRACT_PICKUP)
 	# not the best solution but it works

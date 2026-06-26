@@ -2,6 +2,8 @@ extends Control
 class_name Dialogue
 
 signal speech_ended
+signal speech_started
+
 enum UiTextState { SHOWTEXT, NO_TEXT }
 
 var state: UiTextState = UiTextState.NO_TEXT
@@ -157,6 +159,7 @@ func start_next_dialog() -> void:
 	if Globals.Total_contracts == 0:
 		var dialogs = load("res://assets/narrative/dialogue/Scene_intro.tres")
 		on_start_dialogue(dialogs, 100)
+		speech_started.emit()
 	elif Globals.Total_contracts == 1:
 		# plays after first completed first mini-game
 		pass

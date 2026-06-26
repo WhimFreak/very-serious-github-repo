@@ -13,12 +13,21 @@ const WHEEL_TICK_2 : AudioStream = preload("res://assets/audio/wheel_tick_1.wav"
 const MINIGAME_SELECTED : AudioStream = preload("res://assets/audio/minigame_selected.wav")
 const AUDIENCE_CHEER : AudioStream = preload("res://assets/audio/sfx/Audience Cheer (fx) .wav")
 
+const AUDIENCE_LAUGH_1 : AudioStream = preload("res://assets/audio/sfx/Laugh 1 (fx) .wav")
+const AUDIENCE_LAUGH_2 : AudioStream = preload("res://assets/audio/sfx/Laugh 2 (fx) .wav")
+const AUDIENCE_LAUGH : Array[AudioStream] = [
+	AUDIENCE_LAUGH_1,
+	AUDIENCE_LAUGH_2,
+]
+
 const PLAYER_FOOTSTEP_1 : AudioStream = preload("res://assets/audio/sfx/footstep_basic_1.wav")
 const PLAYER_FOOTSTEP_2 : AudioStream = preload("res://assets/audio/sfx/footstep_basic_2.wav")
 const PLAYER_FOOTSTEPS : Array[AudioStream] = [
 	PLAYER_FOOTSTEP_1,
 	PLAYER_FOOTSTEP_2,
 ]
+
+const PLAYER_FOOTSTEP_STONE : AudioStream = preload("res://assets/audio/sfx/footstep_stone_1.wav")
 
 const ZOMBIE_BITE : AudioStream = preload("res://assets/audio/Zombie Bite (shava) .wav")
 const ZOMBIE_GROWL_1 : AudioStream = preload("res://assets/audio/Zombie Growl 1 (shava).wav")
@@ -28,7 +37,18 @@ const ZOMBIE_GROWL : Array[AudioStream] = [
 	ZOMBIE_GROWL_2,
 ]
 
+const KNIFE_STAB_1 : AudioStream = preload("res://assets/audio/Knife Stab 1.wav")
+const KNIFE_STAB_2 : AudioStream = preload("res://assets/audio/Knife Stab 2.wav")
+const KNIFE_STAB : Array[AudioStream] = [
+	KNIFE_STAB_1,
+	KNIFE_STAB_2,
+]
+
+const KNIFE_SHING : AudioStream = preload("res://assets/audio/Knife Shing.wav")
+
 const MINIGAME_FAIL : AudioStream = preload("res://assets/audio/minigame_fail.wav")
+
+const BOSS_DEATH : AudioStream = preload("res://assets/audio/sfx/boss beat fanfare with snare.mp3")
 
 const JUMPSCARE_1 : AudioStream = preload("res://assets/audio/Jumpscare 1.wav") # TODO
 const JUMPSCARE_2 : AudioStream = preload("res://assets/audio/Jumpscare 2 (shava).wav")
@@ -60,7 +80,6 @@ const SPOOKY_AMBIANCE_ONESHOT : Array[AudioStream] = [
 	SPOOKY_AMBIANCE_ELEMENT_6,
 ]
 
-
 const CONTRACT_PICKUP : AudioStream = preload("res://assets/audio/sfx/Contract fx (shava).wav")
 
 # UI
@@ -78,8 +97,18 @@ const UI_SELECT : Array[AudioStream] = [
 	UI_SELECT_2,
 ]
 
+const UI_SELECT_BOSS_1 : AudioStream = preload("res://assets/audio/ui_select_boss_1.wav")
+const UI_SELECT_BOSS_2 : AudioStream = preload("res://assets/audio/ui_select_boss_2.wav")
+const UI_SELECT_BOSS : Array[AudioStream] =  [
+	UI_SELECT_BOSS_1,
+	UI_SELECT_BOSS_2,
+]
+
 const UI_PLAY : AudioStream = preload("res://assets/audio/ui_play.wav")
 const UI_PICKUP : AudioStream = preload("res://assets/audio/ui_idk_1.wav")
+
+const UI_CORRECT : AudioStream = preload("res://assets/audio/ui_correct.wav")
+const UI_WRONG : AudioStream = preload("res://assets/audio/ui_incorrect.wav")
 
 const DIALOGUE_NOISE_REGULAR_1 : AudioStream = preload("res://assets/audio/Voice 1 (re).wav")
 
@@ -98,6 +127,9 @@ const _SOUND_CONCURRENCY : Dictionary = {
 	AUDIENCE_CHEER : 1,
 	MINIGAME_FAIL : 1,
 	ZOMBIE_BITE : 2,
+	PLAYER_FOOTSTEP_STONE : 1,
+	UI_CORRECT : 1,
+	UI_WRONG : 1,
 } 
 
 const _SOUND_DEFAULT_CONCURRENCY : int = 3
@@ -124,6 +156,8 @@ func _get_max_concurrent(sound : AudioStream) -> int:
 	if sound in DIALOGUE_NOISES_STEVE:
 		return 1
 	if sound in SPOOKY_AMBIANCE_ONESHOT:
+		return 2
+	if sound in UI_SELECT_BOSS:
 		return 2
 
 	return _SOUND_DEFAULT_CONCURRENCY
@@ -204,6 +238,8 @@ func _apply_custom_sound_volume(player : AudioStreamPlayer, _sound : AudioStream
 		player.volume_db = randf_range(-1.5, 0.5)
 	if _sound == AUDIENCE_CHEER:
 		player.volume_db = randf_range(-12.5, -10.5)
+	if _sound in AUDIENCE_LAUGH:
+		player.volume_db = randf_range(-12.5, -10.5)
 	if _sound == UI_PICKUP:
 		player.volume_db = -3.0
 	if _sound == CONTRACT_PICKUP:
@@ -212,20 +248,34 @@ func _apply_custom_sound_volume(player : AudioStreamPlayer, _sound : AudioStream
 		player.volume_db = randf_range(0.0, 2.5)
 	if _sound in ZOMBIE_GROWL:
 		player.volume_db = randf_range(-2.0, -1.5)
+	if _sound in KNIFE_STAB:
+		player.volume_db = randf_range(1.0, 3.5)
+	if _sound == KNIFE_SHING:
+		player.volume_db = randf_range(1.0, 3.5)
 	if _sound == MINIGAME_FAIL:
 		player.volume_db = randf_range(-6.0, -5.0)
 	if _sound in PLAYER_FOOTSTEPS:
 		player.volume_db = randf_range(-16.0, -14.5)
+	if _sound == PLAYER_FOOTSTEP_STONE:
+		player.volume_db = randf_range(-19.0, -17.5)
 	if _sound in UI_CLICK:
 		player.volume_db = randf_range(-12.2, -9.8)
 	if _sound in UI_SELECT:
 		player.volume_db = randf_range(-12.2, -9.8)
+	if _sound in UI_SELECT_BOSS:
+		player.volume_db = randf_range(-2.8, -0.8)
+	if _sound == BOSS_DEATH:
+		player.volume_db = -6.0
 	if _sound == UI_PLAY:
 		player.volume_db = -3.0
+	if _sound == UI_CORRECT:
+		player.volume_db = randf_range(-1.5, 2.0)
+	if _sound == UI_WRONG:
+		player.volume_db = randf_range(-6.0, -3.5)
 	if _sound in DIALOGUE_NOISES_STEVE:
 		player.volume_db = randf_range(-5.5, 3.8)
 	if _sound in JUMPSCARE_V1:
-		player.volume_db = randf_range(-3.0, 6.5)
+		player.volume_db = randf_range(-1.0, 6.5)
 	if _sound in JUMPSCARE_V2:
 		player.volume_db = randf_range(0.0, 6.5)
 	if _sound in SPOOKY_AMBIANCE_ONESHOT:
@@ -236,6 +286,7 @@ func _apply_custom_sound_volume(player : AudioStreamPlayer, _sound : AudioStream
 
 # Pitch control
 func _apply_pitch_modulation(player : AudioStreamPlayer, _sound : AudioStream) -> void:
+	player.pitch_scale = 1.0
 	if _sound == LEVER_PULL:
 		player.pitch_scale = randf_range(0.88, 1.02)
 	if _sound == WHEEL_START:
@@ -246,18 +297,28 @@ func _apply_pitch_modulation(player : AudioStreamPlayer, _sound : AudioStream) -
 		player.pitch_scale = randf_range(0.91, 1.01)
 	if _sound == AUDIENCE_CHEER:
 		player.pitch_scale = randf_range(0.94, 1.0)
+	if _sound in AUDIENCE_LAUGH:
+		player.pitch_scale = randf_range(0.94, 1.0)
 	if _sound == UI_PICKUP:
 		player.pitch_scale = randf_range(0.94, 1.03)
 	if _sound == ZOMBIE_BITE:
 		player.pitch_scale = randf_range(0.91, 1.01)
 	if _sound in ZOMBIE_GROWL:
-		player.pitch_scale = randf_range(0.94, 1.01)
+		player.pitch_scale = randf_range(0.82, 0.99)
+	if _sound in KNIFE_STAB:
+		player.pitch_scale = randf_range(0.84, 1.11)
+	if _sound == KNIFE_SHING:
+		player.pitch_scale = randf_range(0.84, 1.11)
 	if _sound in PLAYER_FOOTSTEPS:
 		player.pitch_scale = randf_range(0.91, 1.21)
+	if _sound == PLAYER_FOOTSTEP_STONE:
+		player.pitch_scale = randf_range(0.86, 1.01)
 	if _sound in UI_CLICK:
 		player.pitch_scale = randf_range(0.64, 0.74)
 	if _sound in UI_SELECT:
 		player.pitch_scale = randf_range(0.64, 0.74)
+	if _sound in UI_SELECT_BOSS:
+		player.pitch_scale = randf_range(0.94, 1.14)
 	if _sound in DIALOGUE_NOISES_STEVE:
 		player.pitch_scale = randf_range(0.75, 1.0)
 	if _sound in JUMPSCARE_V1:
