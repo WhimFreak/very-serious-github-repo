@@ -36,7 +36,7 @@
   { "name": "Cheztocopter", "roles": "Mental Support", "joined_at": "2026-02-01", "itch": "cheztocopter" },
   { "name": "Tuesday", "roles": "Programmer", "joined_at": "2026-02-02", "itch": "Chewsee" },
   { "name": "Cael", "roles": "Programmer", "joined_at": "2026-02-03", "itch": "Clevercael1" },
-  { "name": "Eroax", "roles": "Programmer, Artist", "joined_at": "2026-02-04", "itch": "EroAxe" },
+  { "name": "Eroax", "roles": "Programmer, Artist, Credits Checker", "joined_at": "2026-02-04", "itch": "EroAxe" },
   { "name": "Patricio", "roles": "Programmer", "joined_at": "2026-02-05", "itch": "Patotatoman" },
   { "name": "Hakogaming", "roles": "Writer", "joined_at": "2026-02-06", "itch": "hakogamingman" },
   { "name": "Lordofgeckos", "roles": "Pixel Artist", "joined_at": "2026-02-07", "itch": "Lordofgeckos" },
@@ -48,4 +48,6 @@
   { "name": "Mrz740", "roles": "Moderator", "joined_at": "2026-02-11", "itch": "Mrz740" },
   { "name": "Hyphen", "roles": "Pixel artist", "joined_at": "2026-02-11", "itch": "Hyphen-dev" },
   { "name": "pchila", "roles": "Pixel artist", "joined_at": "2026-02-11", "itch": "pchila" },
+  { "name": "David Radloff-Licht", "roles": "Lead Writer", "joined_at": "2026-02-11", "itch": "HyperionCaesar" },
+  { "name": "Devashish Kumar", "roles": "Mental Support", "joined_at": "2026-02-11", "itch": "Echo Of Silence" },
 ]
