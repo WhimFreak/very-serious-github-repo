@@ -18,7 +18,7 @@ func _collect_contract():
 	if Globals.Total_contracts < 3:
 		Events.change_level("res://assets/scenes/FortuneWheelScene.tscn")
 	else:
-		Events.change_level("res://assets/scenes/Final-boss.tscn")
+		Events.change_level("res://assets/scenes/boss-intro.tscn")
 
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("interact") && can_collect:
