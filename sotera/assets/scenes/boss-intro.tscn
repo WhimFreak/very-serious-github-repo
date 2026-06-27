@@ -47,3 +47,5 @@ game_icons = {
 "quiz": ExtResource("14_2ffx3"),
 "scary": ExtResource("15_fiq2x")
 }
+
+[connection signal="speech_ended" from="CanvasLayer/Dialogue" to="." method="_on_dialogue_speech_ended"]

@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_wg8p3")
-dialogue_lines = Array[String](["My Granny could've got two contracts with her eyes closed", "SPIN THAT WHEEL!!!"])
+dialogue_lines = Array[String](["My Granny could've got that contract with her eyes closed", "SPIN THAT WHEEL!!!"])
 metadata/_custom_type_script = "uid://bd6vca075g71m"
